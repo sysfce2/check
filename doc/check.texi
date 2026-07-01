@@ -430,7 +430,9 @@ The primary build instructions for our unit tests are in
 
 @cartouche
 @example
-@verbatiminclude example/tests/Makefile.am
+@verbatim
+include example/tests/Makefile.am
+@end verbatim
 @end example
 @end cartouche
 
@@ -452,7 +454,9 @@ boilerplate:
 
 @cartouche
 @example
-@verbatiminclude example/src/money.1.h
+@verbatim
+include example/src/money.1.h
+@end verbatim
 @end example
 @end cartouche
 
@@ -461,7 +465,9 @@ should only contain an empty @code{main()} function:
 
 @cartouche
 @example
-@verbatiminclude example/tests/check_money.1.c
+@verbatim
+include example/tests/check_money.1.c
+@end verbatim
 @end example
 @end cartouche
 
@@ -572,7 +578,9 @@ boilerplate:
 
 @cartouche
 @example
-@verbatiminclude example/src/money.1.h
+@verbatim
+include example/src/money.1.h
+@end verbatim
 @end example
 @end cartouche
 
@@ -581,7 +589,9 @@ should only contain an empty @code{main()} function:
 
 @cartouche
 @example
-@verbatiminclude example/tests/check_money.1.c
+@verbatim
+include example/tests/check_money.1.c
+@end verbatim
 @end example
 @end cartouche
 
@@ -628,7 +638,9 @@ Here are the changes to @file{check_money.c} for our first unit test:
 
 @cartouche
 @example
-@verbatiminclude check_money.1-2.c.diff
+@verbatim
+include check_money.1-2.c.diff
+@end verbatim
 @end example
 @end cartouche
 
@@ -720,7 +732,9 @@ We will patch our header @file{money.h} as follows:
 
 @cartouche
 @example
-@verbatiminclude money.1-2.h.diff
+@verbatim
+include money.1-2.h.diff
+@end verbatim
 @end example
 @end cartouche
 
@@ -740,7 +754,9 @@ get the definitions of @code{EXIT_SUCCESS} and @code{EXIT_FAILURE}.
 
 @cartouche
 @example
-@verbatiminclude check_money.2-3.c.diff
+@verbatim
+include check_money.2-3.c.diff
+@end verbatim
 @end example
 @end cartouche
 
@@ -782,7 +798,9 @@ for each of the functions in @code{money.c}. Here is the diff:
 
 @cartouche
 @example
-@verbatiminclude money.1-3.c.diff
+@verbatim
+include money.1-3.c.diff
+@end verbatim
 @end example
 @end cartouche
 
@@ -912,7 +930,9 @@ amount, and then implement the function to return the correct amount:
 
 @cartouche
 @example
-@verbatiminclude money.3-4.c.diff
+@verbatim
+include money.3-4.c.diff
+@end verbatim
 @end example
 @end cartouche
 
@@ -956,7 +976,9 @@ here is a diff:
 
 @cartouche
 @example
-@verbatiminclude money.4-5.c.diff
+@verbatim
+include money.4-5.c.diff
+@end verbatim
 @end example
 @end cartouche
 
@@ -1285,7 +1307,9 @@ changed like so:
 
 @cartouche
 @example
-@verbatiminclude check_money.3-6.c.diff
+@verbatim
+include check_money.3-6.c.diff
+@end verbatim
 @end example
 @end cartouche
 
@@ -1296,7 +1320,9 @@ additional information about where things broke.
 
 @cartouche
 @example
-@verbatiminclude money.5-6.c.diff
+@verbatim
+include money.5-6.c.diff
+@end verbatim
 @end example
 @end cartouche
 
@@ -1424,7 +1450,9 @@ with the following patch:
 
 @cartouche
 @example
-@verbatiminclude check_money.6-7.c.diff
+@verbatim
+include check_money.6-7.c.diff
+@end verbatim
 @end example
 @end cartouche
 
@@ -2255,6 +2283,7 @@ your CMake build how to find it:
 
 @verbatim
 cmake -Dcheck_ROOT=${INSTALL_PREFIX}
+@end verbatim
 
 Then use Check in your @file{CMakeLists.txt} like this:
 

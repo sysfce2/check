@@ -20,9 +20,13 @@
 
 #include "libcompat.h"
 
+#if defined(HAVE_UNISTD_H)
+#include <unistd.h>
+#endif
+
 int timer_delete(timer_t timerid CK_ATTRIBUTE_UNUSED)
 {
-#ifdef HAVE_SETITIMER
+#if defined(HAVE_SETITIMER)
     /*
      * If the system does not have timer_settime() but does have
      * setitimer() use that instead of alarm().
@@ -38,7 +42,7 @@ int timer_delete(timer_t timerid CK_ATTRIBUTE_UNUSED)
     interval.it_interval.tv_usec = 0;
 
     return setitimer(ITIMER_REAL, &interval, NULL);
-#else
+#elif defined(HAVE_DECL_ALARM) && defined(HAVE_ALARM_SYMBOL)
     /*
      * There is only one timer, that used by alarm.
      * Setting alarm(0) will not set a new alarm, and
@@ -48,5 +52,10 @@ int timer_delete(timer_t timerid CK_ATTRIBUTE_UNUSED)
     alarm(0);
 
     return 0;
+#else
+  /*
+   * There is no support for alternative timers, so there is nothing
+   * to delete or reset.
+  */
 #endif
 }

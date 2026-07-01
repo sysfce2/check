@@ -227,6 +227,10 @@ CK_DLL_EXP char *strdup(const char *str);
 CK_DLL_EXP char *strsignal(int sig);
 #endif /* !HAVE_DECL_STRSIGNAL */
 
+#if !HAVE_CLOCK_GETTIME
+CK_DLL_EXP int clock_gettime(clockid_t clk_id, struct timespec *ts);
+#endif /* !HAVE_CLOCK_GETTIME */
+
 /*
  * On systems where clock_gettime() is not available, or
  * on systems where some clocks may not be supported, the
@@ -281,7 +285,6 @@ struct itimerspec
  */
 struct sigevent;
 
-CK_DLL_EXP int clock_gettime(clockid_t clk_id, struct timespec *ts);
 CK_DLL_EXP int timer_create(clockid_t clockid, struct sigevent *sevp,
                             timer_t * timerid);
 CK_DLL_EXP int timer_settime(timer_t timerid, int flags,

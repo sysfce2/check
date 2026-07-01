@@ -25,11 +25,14 @@ set(SOURCES libcompat.c)
 set(SOURCES ${SOURCES} fpclassify.c)
 
 if (NOT HAVE_LIBRT)
-  set(SOURCES ${SOURCES} clock_gettime.c)
   set(SOURCES ${SOURCES} timer_create.c)
   set(SOURCES ${SOURCES} timer_delete.c)
   set(SOURCES ${SOURCES} timer_settime.c)
 endif(NOT HAVE_LIBRT)
+
+if(NOT HAVE_CLOCK_GETTIME)
+  set(SOURCES ${SOURCES} clock_gettime.c)
+endif(NOT HAVE_CLOCK_GETTIME)
 
 if(NOT HAVE_GETLINE)
   set(SOURCES ${SOURCES} getline.c)

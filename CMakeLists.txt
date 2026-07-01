@@ -171,6 +171,7 @@ ck_check_include_file("windows.h" HAVE_WINDOWS_H)
 
 ###############################################################################
 # Check functions
+check_function_exists(clock_gettime HAVE_CLOCK_GETTIME)
 check_function_exists(fork HAVE_FORK)
 check_function_exists(getline HAVE_GETLINE)
 check_function_exists(getpid HAVE_GETPID)
@@ -186,6 +187,7 @@ check_function_exists(strsignal HAVE_DECL_STRSIGNAL)
 check_function_exists(_getpid HAVE__GETPID)
 check_function_exists(_strdup HAVE__STRDUP)
 check_function_exists(alarm HAVE_DECL_ALARM)
+check_symbol_exists(alarm unistd.h HAVE_ALARM_SYMBOL)
 if (HAVE_WINDOWS_H)
   check_function_exists(InitOnceBeginInitialize HAVE_INIT_ONCE_BEGIN_INITIALIZE)
   check_function_exists(InitOnceComplete HAVE_INIT_ONCE_COMPLETE)
